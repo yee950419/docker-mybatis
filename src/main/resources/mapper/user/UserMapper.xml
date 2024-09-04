@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mybatis_gradle.user.mapper.UserMapper">
+
+    <select id="showUser" parameterType="com.study.mybatis_gradle.user.dto.ShowUserReqDto" resultType="com.study.mybatis_gradle.user.dto.ShowUserResDto">
+        SELECT id, name, age
+          FROM user
+         WHERE id = #{id}
+    </select>
+
+</mapper>
