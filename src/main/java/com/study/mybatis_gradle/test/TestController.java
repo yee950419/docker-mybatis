@@ -1,5 +1,6 @@
 package com.study.mybatis_gradle.test;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -12,11 +13,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RestController
 public class TestController {
 
     @GetMapping("/test")
     public String test() {
+
+        log.info("test success!");
 
         return "test success!";
     }
