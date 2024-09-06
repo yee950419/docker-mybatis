@@ -1,7 +1,16 @@
 package com.study.mybatis_gradle.test;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class TestController {
@@ -10,5 +19,19 @@ public class TestController {
     public String test() {
 
         return "test success!";
+    }
+
+    @GetMapping("/connection-test")
+    public String connectionTest() {
+
+        String serverURL = "http://127.0.0.1:8081/test";
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        ResponseEntity<String> response = restTemplate.getForEntity(serverURL, String.class);
+
+        System.out.println("response : " + response.getBody());
+
+        return "connection success!";
     }
 }
