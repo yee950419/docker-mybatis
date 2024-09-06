@@ -28,13 +28,13 @@ public class TestController {
     @GetMapping("/connection-test")
     public String connectionTest() {
 
-        String serverURL = "http://127.0.0.1:8081/test";
+        String serverURL = "http://127.0.0.1:8080/test";
 
         RestTemplate restTemplate = new RestTemplate();
 
         ResponseEntity<String> response = restTemplate.getForEntity(serverURL, String.class);
 
-        System.out.println("response : " + response.getBody());
+        log.info("response : " + response.getBody());
 
         return "connection success!";
     }
